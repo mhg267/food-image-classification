@@ -3,14 +3,17 @@ import cv2
 import torch
 import os
 import torch.nn as nn
+import matplotlib
+matplotlib.use("MacOSX")
+import matplotlib.pyplot as plt
+
 
 from torchvision import transforms
 from data_setup import FoodDataset
 from model_architecture import Net
 from torch.utils.data import DataLoader
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from tqdm import tqdm
-
 
 
 
@@ -18,8 +21,8 @@ from tqdm import tqdm
 def get_args():
     parser = argparse.ArgumentParser('Model Inference')
 
-    parser.add_argument("--best_model_path", "-m", type=str, default="/Users/minhhung/Documents/Code/Python/Computer Vision/Projects/Food Image Classification/trained_model/best_model.pth")
-    parser.add_argument("--root", "-r", type=str, default="/Users/minhhung/Documents/Code/Python/Computer Vision/Data/Dataset/Food Classification Dataset")
+    parser.add_argument("--best_model_path", "-m", type=str, default=None)
+    parser.add_argument("--root", "-r", type=str, default=None)
     parser.add_argument("--image_path", "-p", type=str, default=None)
     parser.add_argument("--batch_size", "-b", type=int, default=16)
 
@@ -45,13 +48,31 @@ def test_model(data):
             prediction = torch.argmax(output, dim=1)
             predictions.extend(prediction.cpu().tolist())
 
+    cm = confusion_matrix(labels, predictions, normalize='true')
+
     print("Accuracy: ", accuracy_score(labels, predictions))
     print("-------------------------------------------------")
     print("Classification Report:\n", classification_report(labels, predictions))
     print("-------------------------------------------------")
-    print("Confusion Matrix:\n", confusion_matrix(labels, predictions))
+    print("Confusion Matrix:\n", cm)
 
+    fig, ax = plt.subplots(figsize=(10, 10))
+    im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues, vmin=0.0, vmax=1.0)
 
+    ax.set_title("Confusion Matrix - Food Classification")
+    ax.set_xlabel("Predicted label")
+    ax.set_ylabel("True label")
+
+    ax.set_xticks(range(len(food_list)))
+    ax.set_yticks(range(len(food_list)))
+    ax.set_xticklabels(food_list, rotation=90, fontsize=6)
+    ax.set_yticklabels(food_list, fontsize=6)
+
+    cbar = fig.colorbar(im, ax=ax)
+    cbar.ax.tick_params(labelsize=8)
+
+    plt.tight_layout()
+    plt.show()
 
 def predict(image_path):
     original_image = cv2.imread(image_path)
@@ -106,7 +127,7 @@ if __name__ == '__main__':
 
     model = Net().to(device)
 
-    if os.path.exists(args.best_model_path):
+    if args.best_model_path is not None:
         checkpoint = torch.load(args.best_model_path, map_location=device)
         model.load_state_dict(checkpoint["model"])
     else:
