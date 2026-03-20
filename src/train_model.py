@@ -39,7 +39,7 @@ class EarlyStopping:
 def get_args():
     parser = argparse.ArgumentParser(description='model arguments')
 
-    parser.add_argument('--root', '-r', type=str, default='/Users/minhhung/Documents/Code/Python/Computer Vision/Data/Dataset/Food Classification Dataset', help='data root')
+    parser.add_argument('--root', '-r', type=str, default=None, help='data root')
     parser.add_argument('--epochs', '-e', type=int, default=1000, help='number of epochs')
     parser.add_argument('--batch_size', '-b', type=int, default=32, help='batch size')
     parser.add_argument('--num_workers', '-w', type=int, default=4, help='number of workers')
