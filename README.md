@@ -17,7 +17,7 @@ The main goal is to understand how CNN works without using transfer learning.
 
 * Source: Kaggle Food Image Dataset
 * Number of classes: 34
-* Link: https://www.kaggle.com/your-dataset-link
+* Link: [https://www.kaggle.com/your-dataset-link](https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset)
 
 Data is split into:
 
@@ -79,7 +79,15 @@ python mode_inference.py --image_path path/to/image.jpg
 * Save best model
 
 ---
+## 📦 Trained Model
 
+The trained model is not included in this repository due to file size limitations.
+
+You can:
+- Train the model using the provided script
+- Or contact me if you need the trained weights
+
+---
 ## 📌 Notes
 
 * The model shows some overfitting (train acc higher than val acc)
