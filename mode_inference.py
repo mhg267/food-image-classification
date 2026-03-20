@@ -4,7 +4,7 @@ import torch
 import os
 import torch.nn as nn
 import matplotlib
-matplotlib.use("MacOSX")
+matplotlib.use("MacOSX")  # Depend on System
 import matplotlib.pyplot as plt
 
 
