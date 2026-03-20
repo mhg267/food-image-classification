@@ -17,7 +17,7 @@ The main goal is to understand how CNN works without using transfer learning.
 
 * Source: Kaggle Food Image Dataset
 * Number of classes: 34
-* Link: [https://www.kaggle.com/your-dataset-link](https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset)
+* Link: https://www.kaggle.com/datasets/harishkumardatalab/food-image-classification-dataset
 
 Data is split into:
 
