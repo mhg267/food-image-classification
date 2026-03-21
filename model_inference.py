@@ -14,6 +14,7 @@ from src.model_architecture import Net
 from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from tqdm import tqdm
+from PIL import Image
 
 
 
@@ -77,8 +78,8 @@ def predict(image_path):
     original_image = cv2.imread(image_path)
 
     image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
-    image = cv2.resize(image, (224, 224))
-    image = transforms.ToTensor()(image)
+    image = Image.fromarray(image)
+    image = transform(image)
     image = image[None, :, :, :].to(device)
 
     model.eval()
