@@ -48,14 +48,13 @@ def test_model(data):
             prediction = torch.argmax(output, dim=1)
             predictions.extend(prediction.cpu().tolist())
 
-    cm = confusion_matrix(labels, predictions, normalize='true')
-
     print("Accuracy: ", accuracy_score(labels, predictions))
     print("-------------------------------------------------")
     print("Classification Report:\n", classification_report(labels, predictions))
     print("-------------------------------------------------")
-    print("Confusion Matrix:\n", cm)
 
+    cm = confusion_matrix(labels, predictions, normalize='true')
+    
     fig, ax = plt.subplots(figsize=(10, 10))
     im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues, vmin=0.0, vmax=1.0)
 
