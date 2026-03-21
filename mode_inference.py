@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 
 
 from torchvision import transforms
-from data_setup import FoodDataset
-from model_architecture import Net
+from src.data_setup import FoodDataset
+from src.model_architecture import Net
 from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, ConfusionMatrixDisplay
 from tqdm import tqdm
