@@ -2,8 +2,8 @@ import argparse
 import torch
 import os
 
-from data_setup import FoodDataset
-from model_architecture import Net
+from src.data_setup import FoodDataset
+from src.model_architecture import Net
 
 from torch import nn
 from torchvision import transforms
