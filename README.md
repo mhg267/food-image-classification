@@ -40,6 +40,18 @@ Model file: `model_architecture.py`
 
 ---
 
+## 📈 TensorBoard Visualization
+
+### Loss
+
+![Loss](assets/loss.png)
+
+### Accuracy
+
+![Accuracy](assets/accuracy.png)
+
+---
+
 ## ⚙️ How to run
 
 ### Install dependencies
