@@ -52,7 +52,7 @@ Model file: `model_architecture.py`
 
 ### Learning rate
 
-![Learning Rate](tensorboard/Learning%rate.png)
+![Learning Rate](tensorboard/learning_rate.png)
 
 ---
 
