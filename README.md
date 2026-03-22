@@ -44,7 +44,7 @@ Model file: `model_architecture.py`
 
 ### Loss
 
-![Loss](assets/loss.png)
+![Loss](tensorboard/Loss.png)
 
 ### Accuracy
 
