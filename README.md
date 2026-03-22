@@ -50,6 +50,9 @@ Model file: `model_architecture.py`
 
 ![Accuracy](tensorboard/Accuracy.png)
 
+### Learning rate
+![Accuracy](tensorboard/Learning rate.png)
+
 ---
 
 ## ⚙️ How to run
