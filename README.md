@@ -48,7 +48,7 @@ Model file: `model_architecture.py`
 
 ### Accuracy
 
-![Accuracy](assets/accuracy.png)
+![Accuracy](tensorboard/Accuracy.png)
 
 ---
 
