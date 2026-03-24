@@ -44,11 +44,11 @@ Model file: `model_architecture.py`
 
 ### Loss
 
-![Loss](tensorboard/Loss.png)
+![Loss](tensorboard/loss.png)
 
 ### Accuracy
 
-![Accuracy](tensorboard/Accuracy.png)
+![Accuracy](tensorboard/accuracy.png)
 
 ### Learning rate
 
