@@ -4,7 +4,7 @@ import cv2
 
 
 from torch.utils.data import Dataset
-from src.train_test_split import data_split
+from train_test_split import data_split
 from PIL import Image
 
 class FoodDataset(Dataset):
